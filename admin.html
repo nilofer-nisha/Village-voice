@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Panel</title>
+</head>
+<body>
+    <h1>All Complaints</h1>
+    <table border="1">
+        <tr>
+            <th>ID</th><th>Name</th><th>Phone</th><th>Address</th>
+            <th>Problem</th><th>Status</th><th>Action</th>
+        </tr>
+        {% for c in complaints %}
+        <tr>
+            <td>{{ c[0] }}</td><td>{{ c[1] }}</td><td>{{ c[2] }}</td><td>{{ c[3] }}</td>
+            <td>{{ c[4] }}</td><td>{{ c[8] }}</td>
+            <td><a href="/solve/{{ c[0] }}">Mark Solved</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

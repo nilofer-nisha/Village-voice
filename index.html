@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Village Voice - புகார் பெட்டி</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background-color: #f0f8ff; }
+       .card { border-radius: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+       .btn-primary { background-color: #0d6efd; border: none; }
+    </style>
+</head>
+<body>
+<div class="container mt-5">
+    <div class="card p-4">
+        <h2 class="text-center text-primary">Village Voice / கிராம குரல்</h2>
+        <p class="text-center">Report your village problems here</p>
+
+        {% if complaint_id %}
+        <div class="alert alert-success text-center">
+            <h4>Your Complaint ID: {{ complaint_id }}</h4>
+            <h4>உங்கள் புகார் ID: {{ complaint_id }}</h4>
+        </div>
+        {% endif %}
+
+        <form method="POST">
+            <div class="mb-3">
+                <label class="form-label">Name / பெயர்</label>
+                <input type="text" name="name" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Phone / தொலைபேசி</label>
+                <input type="text" name="phone" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Address / முகவரி</label>
+                <input type="text" name="address" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Problem / பிரச்சனை</label>
+                <textarea name="description" class="form-control" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Submit / சமர்பிக்க</button>
+        </form>
+        <a href="/status" class="btn btn-secondary w-100 mt-2">Check Status / நிலை பார்க</a>
+    </div>
+</div>
+</body>
+</html>
